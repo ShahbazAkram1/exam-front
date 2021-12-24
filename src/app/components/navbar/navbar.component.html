@@ -1,1 +1,45 @@
-<p>navbar works!</p>
+<!-- <p>
+    <mat-toolbar>
+        <span>Exam Portal</span>
+    </mat-toolbar>
+</p> -->
+
+<p>
+    <mat-toolbar color="primary">
+        <a routerLink="/" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu_book</mat-icon>
+        </a>
+        <span>Examportal</span>
+        <span class="example-spacer"></span>
+        <a [routerLink]="'/login'" mat-icon-button class="example-icon favorite-icon mr20 ml20" aria-label="Example icon-button with heart icon">
+            Login
+      </a>
+        <a [routerLink]="'/signup'" mat-icon-button class="example-icon mr" aria-label="Example icon-button with share icon">
+            Register
+
+      </a>
+    </mat-toolbar>
+</p>
+
+<!-- <p>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <span>My App</span>
+            <span class="example-spacer"></span>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row>
+            <span>Second Line</span>
+            <span class="example-spacer"></span>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>favorite</mat-icon>
+        </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>share</mat-icon>
+        </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</p> -->
