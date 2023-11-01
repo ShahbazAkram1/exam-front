@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <mat-card class="mt20">
           <mat-card-header>
-            
+            <!-- heading -->
             <mat-card-title>
               Read the instructions of this page carefully
             </mat-card-title>
@@ -12,7 +12,7 @@
           </mat-card-header>
 
           <mat-card-content class="ml20">
-           
+            <!-- content  -->
 
             <h1>{{ quiz.title }}</h1>
             <p>{{ quiz.description }}</p>
@@ -24,7 +24,7 @@
             <ul>
               <li>This quiz is only for practice purpose.</li>
 
-              
+              <!-- Let the time of each questions is  2 minutes -->
               <li>
                 You have to submit quiz with in
                 <b> {{ quiz.numberOfQuestions * 2 }} Minutes.</b>
@@ -62,7 +62,7 @@
             </ul>
           </mat-card-content>
           <mat-card-actions class="text-center">
-           
+            <!-- actions -->
             <button
               (click)="startQuiz()"
               class=""

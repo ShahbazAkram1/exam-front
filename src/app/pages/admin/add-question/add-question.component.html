@@ -13,17 +13,30 @@
         </mat-card-header>
         <mat-card-content>
           <form class="mt20" (submit)="formSubmit()">
-           
+            <!-- content field -->
+
+            <!-- <mat-form-field class="w100">
+              <mat-label>Write question content</mat-label>
+              <textarea
+                required
+                rows="8"
+                [(ngModel)]="question.content"
+                name="content"
+                matInput
+                placeholder="Enter here"
+              ></textarea>
+            </mat-form-field> -->
+
             <ckeditor
-              [editor]="Editor"
               name="content"
               [(ngModel)]="question.content"
             ></ckeditor>
 
+            <!-- options -->
 
             <div class="row">
               <div class="col-md-6">
-                
+                <!-- option1 -->
 
                 <mat-form-field class="w100">
                   <mat-label>Enter Option1</mat-label>
@@ -37,7 +50,7 @@
                 </mat-form-field>
               </div>
               <div class="col-md-6">
-               
+                <!-- option2 -->
                 <mat-form-field class="w100">
                   <mat-label>Enter Option2</mat-label>
                   <input
@@ -53,7 +66,7 @@
 
             <div class="row">
               <div class="col-md-6">
-               
+                <!-- option3 -->
                 <mat-form-field class="w100">
                   <mat-label>Enter Option3</mat-label>
                   <input
@@ -65,7 +78,7 @@
                 </mat-form-field>
               </div>
               <div class="col-md-6">
-                
+                <!-- option4 -->
                 <mat-form-field class="w100">
                   <mat-label>Enter Option4</mat-label>
                   <input
@@ -78,7 +91,7 @@
               </div>
             </div>
 
-           
+            <!-- answer -->
             <mat-form-field class="w100">
               <mat-label>Select Answer</mat-label>
               <mat-select required [(ngModel)]="question.answer" name="answer">
@@ -115,4 +128,4 @@
   </div>
 </div>
 
-
+<!-- {{ question | json }} -->

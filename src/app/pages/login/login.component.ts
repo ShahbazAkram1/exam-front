@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
-import { LoginService } from 'src/app/service/login.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -46,23 +46,28 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-   
+    //request to server to generate token
     this.login.generateToken(this.loginData).subscribe(
       (data: any) => {
         console.log('success');
         console.log(data);
+
+        //login...
         this.login.loginUser(data.token);
 
         this.login.getCurrentUser().subscribe((user: any) => {
           this.login.setUser(user);
           console.log(user);
-          
+          //redirect ...ADMIN: admin-dashboard
+          //redirect ...NORMAL:normal-dashboard
           if (this.login.getUserRole() == 'ADMIN') {
-            
+            //admin dashboard
+            // window.location.href = '/admin';
             this.router.navigate(['admin']);
             this.login.loginStatusSubject.next(true);
           } else if (this.login.getUserRole() == 'NORMAL') {
-            
+            //normal user dashbaord
+            // window.location.href = '/user-dashboard';
             this.router.navigate(['user-dashboard/0']);
             this.login.loginStatusSubject.next(true);
           } else {

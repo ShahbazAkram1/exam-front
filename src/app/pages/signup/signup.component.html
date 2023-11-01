@@ -9,9 +9,10 @@
 
           <h1 class="text-center">Register Here !!</h1>
 
-          
+          <!-- {{ user | json }} -->
+
           <form (ngSubmit)="formSubmit()">
-           
+            <!-- Username field -->
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>User Name</mat-label>
               <input
@@ -24,7 +25,7 @@
               <mat-hint>Username must be unique !!</mat-hint>
             </mat-form-field>
 
-            
+            <!-- Password field -->
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>User Password</mat-label>
               <input
@@ -37,7 +38,7 @@
               />
             </mat-form-field>
 
-            
+            <!-- first name  -->
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>First Name</mat-label>
               <input
@@ -49,7 +50,7 @@
               />
             </mat-form-field>
 
-            
+            <!-- lastname -->
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Last Name</mat-label>
               <input
@@ -61,7 +62,7 @@
               />
             </mat-form-field>
 
-           
+            <!-- email -->
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Email Address</mat-label>
               <input
@@ -74,6 +75,18 @@
               />
             </mat-form-field>
 
+            <!-- phone number -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Phone Number</mat-label>
+              <input
+                required
+                [(ngModel)]="user.phone"
+                name="phone"
+                type="number"
+                matInput
+                placeholder="Enter here"
+              />
+            </mat-form-field>
 
             <div class="container text-center">
               <button type="submit" mat-raised-button color="primary">

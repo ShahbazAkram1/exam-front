@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from 'src/app/service/category.service';
+import { CategoryService } from 'src/app/services/category.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,18 +8,20 @@ import Swal from 'sweetalert2';
   styleUrls: ['./view-categories.component.css'],
 })
 export class ViewCategoriesComponent implements OnInit {
-  categories = [];
+  categories: any = [];
 
   constructor(private _category: CategoryService) {}
 
   ngOnInit(): void {
     this._category.categories().subscribe(
       (data: any) => {
+        //css
         this.categories = data;
         console.log(this.categories);
       },
 
       (error) => {
+        //
         console.log(error);
         Swal.fire('Error !!', 'Error in loading data', 'error');
       }

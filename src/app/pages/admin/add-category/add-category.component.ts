@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CategoryService } from 'src/app/service/category.service';
+import { CategoryService } from 'src/app/services/category.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -29,6 +29,7 @@ export class AddCategoryComponent implements OnInit {
       return;
     }
 
+    //all done
 
     this._category.addCategory(this.category).subscribe(
       (data: any) => {

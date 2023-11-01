@@ -1,6 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/service/login.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +9,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class NavbarComponent implements OnInit {
   isLoggedIn = false;
-  // user = null;
-  user: { username: string } | null = null;
-
-  
+  user: any = null;
 
   constructor(public login: LoginService) {}
 
@@ -28,5 +25,6 @@ export class NavbarComponent implements OnInit {
   public logout() {
     this.login.logout();
     window.location.reload();
+    // this.login.loginStatusSubject.next(false);
   }
 }

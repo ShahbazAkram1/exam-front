@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { QuizService } from 'src/app/service/quiz.service';
+import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./view-quizzes.component.css'],
 })
 export class ViewQuizzesComponent implements OnInit {
-  quizzes = [];
+  quizzes: any[] = [];
 
   constructor(private _quiz: QuizService) {}
 
@@ -25,7 +25,8 @@ export class ViewQuizzesComponent implements OnInit {
     );
   }
 
-  deleteQuiz(qId) {
+  //
+  deleteQuiz(qId: any) {
     Swal.fire({
       icon: 'info',
       title: 'Are you sure ?',
@@ -33,7 +34,7 @@ export class ViewQuizzesComponent implements OnInit {
       showCancelButton: true,
     }).then((result) => {
       if (result.isConfirmed) {
-
+        //delete...
 
         this._quiz.deleteQuiz(qId).subscribe(
           (data) => {

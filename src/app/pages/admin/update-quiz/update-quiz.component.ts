@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoryService } from 'src/app/service/category.service';
-import { QuizService } from 'src/app/service/quiz.service';
+import { CategoryService } from 'src/app/services/category.service';
+import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,12 +18,12 @@ export class UpdateQuizComponent implements OnInit {
   ) {}
 
   qId = 0;
-  quiz;
-  categories;
+  quiz: any;
+  categories: any;
 
   ngOnInit(): void {
-    this.qId = this._route.snapshot.params.qid;
-    
+    this.qId = this._route.snapshot.params['qid'];
+    // alert(this.qId);
     this._quiz.getQuiz(this.qId).subscribe(
       (data: any) => {
         this.quiz = data;
@@ -44,9 +44,9 @@ export class UpdateQuizComponent implements OnInit {
     );
   }
 
-  
+  //update form submit
   public updateData() {
-    
+    //validatate
 
     this._quiz.updateQuiz(this.quiz).subscribe(
       (data) => {

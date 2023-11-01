@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CategoryService } from 'src/app/service/category.service';
-import { QuizService } from 'src/app/service/quiz.service';
+import { CategoryService } from 'src/app/services/category.service';
+import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./add-quiz.component.css'],
 })
 export class AddQuizComponent implements OnInit {
-  categories = [];
+  categories: any[] = [];
 
   quizData = {
     title: '',
@@ -32,9 +32,9 @@ export class AddQuizComponent implements OnInit {
   ngOnInit(): void {
     this._cat.categories().subscribe(
       (data: any) => {
-        
+        //categories load
         this.categories = data;
-        
+        // console.log(this.categories);
       },
 
       (error) => {
@@ -43,7 +43,7 @@ export class AddQuizComponent implements OnInit {
       }
     );
   }
-  
+  //
   addQuiz() {
     if (this.quizData.title.trim() == '' || this.quizData.title == null) {
       this._snack.open('Title Required !!', '', {
@@ -52,7 +52,9 @@ export class AddQuizComponent implements OnInit {
       return;
     }
 
-    
+    //validation...
+
+    //call server
     this._quiz.addQuiz(this.quizData).subscribe(
       (data) => {
         Swal.fire('Success', 'quiz is added', 'success');
